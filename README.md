@@ -1,6 +1,6 @@
 ## Webpack + Angular 1.X + ES5
 
-A boilerplate using npm modules, bootstrap, and webpack and Angular.
+A boilerplate using npm modules, bootstrap, webpack and Angular.
 
 ### Installation
 
