@@ -1,4 +1,4 @@
-## Webpack + Angular 1.X + ES5
+## Webpack + Angular 1.x + ES5
 
 A boilerplate using npm modules, bootstrap, webpack and Angular.
 
