@@ -1,0 +1,30 @@
+{
+  "name": "webpack_angular",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "start": "webpack-dev-server --history-api-fallback --inline --progress",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.5",
+    "angular-resource": "^1.5.5",
+    "angular-ui-router": "^0.3.0",
+    "bootstrap-loader": "^1.0.10",
+    "bootstrap-sass": "^3.3.6",
+    "css-loader": "^0.23.1",
+    "file-loader": "^0.8.5",
+    "html-loader": "^0.4.3",
+    "node-sass": "^3.7.0",
+    "resolve-url-loader": "^1.4.3",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1",
+    "svg-inline-loader": "^0.4.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.0",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
