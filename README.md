@@ -15,7 +15,7 @@ A boilerplate using npm modules, bootstrap, webpack and Angular.
 To organize our code, we will be putting our code into modules.
 Each module will contain all the relevant routes, controllers, views and styles.
 
-Our tutorial will consume the fake API from http://jsonplaceholder.typicode.com
+Our tutorial will consume the fake API http://jsonplaceholder.typicode.com
 
 The first module we will create will consume the `/posts` endpoint.  We will therefore create a `posts` module
 with the following structure:
@@ -29,6 +29,10 @@ with the following structure:
       index.js
       routes.js
 ```
+
+You can do this with a custom command.
+
+`$> npm run createModule posts`
 
 Once you have the above structure implemented, it's time to configure our router.
 
@@ -56,11 +60,13 @@ Let's add a route to view all `Posts`.
 Add to `app/posts/routes.js`
 
 ```
-  $stateProvider
-    .state('postsIndex', {
-      url: '/posts',
-      template: require('./views/index.html'),
-    })
+  module.exports = function($stateProvider) {
+    $stateProvider
+      .state('postsIndex', {
+        url: '/posts',
+        template: require('./views/index.html'),
+      })
+  }
 ```
 
 You will notice we are referencing the template, let's go ahead and add content to the view file `app/posts/views/index.html`
@@ -119,7 +125,7 @@ We have imported the routes from the routes file, and added it as a `config` to 
 Our routes should work now, right?  
 Go to `/posts`
 
-* Spoiler, they don't work *
+*Spoiler, they don't work*
 
 #### Adding our posts module to the app
 
@@ -142,9 +148,21 @@ Then add
   ...
   // Modules
   home, 
-  resources
+  posts
   ...
 ```
+
+What are we doing here?
+
+* We are importing our entire posts module into `index.js` which is our main app file
+  * Our posts module has it's own routes loaded
+* We are injecting the posts module as a dependency of our app
+
+If you were to `console.log(posts)` below the `require` you would notice that it will log `app.posts`.  
+That is because only the name of our app was exported, but because we are importing it, webpack includes it's javascript in our project.
+
+This is a very different way of loading javascript than you're probably used to.  Instead of dozens of `<script>` tags, we have a single entry point for our app.
+This gives us great insight into what is being loaded, when, and from where.
 
 Navigate to `/posts` and it should be rendering `/app/posts/views/index.html`
 
