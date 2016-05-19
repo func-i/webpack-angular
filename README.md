@@ -96,7 +96,7 @@ they will load all in one place.
 ### To continue:
 
 * `git stash`
-* `git checkout activity_02`
+* `git checkout activity_03`
 
 
 
