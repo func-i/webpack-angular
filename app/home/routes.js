@@ -1,4 +1,4 @@
-module.exports = function routes($stateProvider) {
+module.exports = function($stateProvider) {
   $stateProvider
     .state('home', {
       url: '/',

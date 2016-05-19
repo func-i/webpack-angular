@@ -6,11 +6,13 @@ var routing = require('./routes.js');
 
 // modules
 var home = require('./home');
+var posts = require('./posts');
 
 angular.module('app', [
   uirouter, 
 
   // modules
-  home
+  home,
+  posts
   
 ]).config(routing)
