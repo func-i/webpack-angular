@@ -10,93 +10,64 @@ A boilerplate using npm modules, bootstrap, webpack and Angular.
 
 `$> open localhost:8080`
 
-## Activity 2 - Adding a Controller
+## Activity 3 - Controller Variables, ng-repeat
 
-We now have a module for our posts, it doesn't do anything yet, so let's change that.  
-Angular is an MVC, and we already have a view but we don't have a controller.
+Our controller is loaded, but it only logs to the console.
 
-### Creating a controller  
+The MVC concept states that our views render data from our controllers that is loaded from our models.  
+So let's set some data in our controller to pass to our view.
 
-There are a couple of ways to add a controller.  Let's start with the very basic approach, adding it via our HTML.
+#### Setting controller variables
 
-#### Referencing our controller
-
-Replace `app/posts/views/index.html` with:
+Replace the contents of `app/posts/controllers/index_ctrl.js` with:
 
 ```
-<div id="posts" ng-controller="postsIndexController as indexCtrl">
+module.exports = function() {
+  this.posts = [
+    {name: 'Post1'},
+    {name: 'Post2'},
+    {name: 'Post2'}
+  ]
+}
+```
+
+Here we are creating the posts property on the post controller function.  This property will be accessible in our view.
+
+Add these lines one by one to `app/posts/views/index.html` refreshing them each time to view their result.
+
+* `{{ indexCtrl.posts }}`
+* `{{ indexCtrl.posts[0] }}`
+* `{{ indexCtrl.posts[0].name }}`
+
+#### Angular directives in our view
+
+We're only using one directive in our app at the moment (`ng-app` in /index.html).  Let's add another one to do work for us.
+
+I want to create a list of our posts.  Replace `app/posts/views/index.html` with:
+
+```
+<div id="posts">
   <h1>Posts</h1>
+  <ul class="list-group">
+    <li class="list-group-item" ng-repeat="post in indexCtrl.posts">
+      {{ post.name }}
+    </li>
+  </ul>
 </div>
 ```
 
-If you reload your `/posts` page, and open your web inspector, you will notice an error in your console.
-This is because the controller doesn't exist yet.
+When your page refreshes, you will see our list of posts.
+We are using `ng-repeat` to loop through a list, and repeat some DOM.
 
-Let's create it:
+It also creates a local variable in the repeat, `post`, which we use inside the loop!
 
-#### Creating our controller
-
-Create the file `app/posts/controllers/index_ctrl.js` and populate it with:
-
-```
-module.exports = function(posts) {
-  console.log("in posts controller");
-}
-```
-
-As alway, we have defined our controller, but haven't included it yet.
-
-#### Including our controller in our module
-
-Open `app/posts/index.js` and replace it's contents with:
-
-```
-var angular = require('angular');
-var routing = require('./routes');
-var indexController = require('./controllers/index_ctrl.js');
-
-module.exports = angular.module('app.posts', [])
-  .config(routing)
-  .controller("postIndexController", indexController)
-  .name
-```
-
-As you can see, we've imported the controller, and added it to our posts module as a controller.
-
-Now when you visit `/posts`, it will load our controller and output to the console properly!
-
-#### Referencing our controller in the routes
-
-We added a reference to our controller in our HTML with `ng-controller`.
-We are specifying which view to use in our router using the `template` key,
-we can also reference our controller in the router too.
-
-Change your `postsIndex` route to the following:
-
-```
-module.exports = function($stateProvider) {
-  $stateProvider
-    .state('postsIndex', {
-      url: '/posts',
-      template: require('./views/index.html'),
-      controller: 'postsIndexController',
-      controllerAs: 'indexCtrl'
-    })
-}
-```
-
-remove `ng-controller="postsIndexController as indexCtrl"` from `app/posts/views/index.html` and reload the page.  
-
-It should still work!
-
-This is a more organized way to reference our controllers because we can see our routes and which views/controllers
-they will load all in one place.
-
+Angular is great at simplifying things that we do very often, 
+such as looping through a list to show a list of `<li>` or `<tr>` elements.
 
 ### To continue:
 
 * `git stash`
-* `git checkout activity_03`
+* `git checkout activity_04`
 
 
 
