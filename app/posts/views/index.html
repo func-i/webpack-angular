@@ -1,3 +1,8 @@
 <div id="posts">
   <h1>Posts</h1>
+  <ul class="list-group">
+    <li class="list-group-item" ng-repeat="post in indexCtrl.posts">
+      {{ post.name }}
+    </li>
+  </ul>
 </div>
