@@ -40,6 +40,11 @@ You are missing:
   * That queries the API to load a single record.  
   * [ngResource](https://docs.angularjs.org/api/ngResource)
     * hint: `Post.get`
+    * We need to make an API call with the `:id` of the post.
+      If you notice in the template given below, we are passing that `id` into the `ui-sref` which is our router link
+      We need a way to access URL params.
+    * hint: inject `$stateParams` into your show controller. 
+            console.log($stateParams) to see what's there.
 * A show view template
 
 As some help, here is a change to `app/posts/views/index.html`
