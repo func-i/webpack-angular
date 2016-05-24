@@ -10,64 +10,43 @@ A boilerplate using npm modules, bootstrap, webpack and Angular.
 
 `$> open localhost:8080`
 
-## Activity 3 - Controller Variables, ng-repeat
+## Activity 4 - Adding a show route
 
-Our controller is loaded, but it only logs to the console.
+You should be on the url `/posts`
 
-The MVC concept states that our views render data from our controllers that is loaded from our models.  
-So let's set some data in our controller to pass to our view.
+We have a list of our posts, let's add a route to view a single post from our list.
+You will be doing most of this exercise on your own.
 
-#### Setting controller variables
+#### Adding a show route
 
-Replace the contents of `app/posts/controllers/index_ctrl.js` with:
+In `app/posts/routes.js` you can see the route for our `index` action.  Let's add the show route.
 
-```
-module.exports = function() {
-  this.posts = [
-    {name: 'Post1'},
-    {name: 'Post2'},
-    {name: 'Post2'}
-  ]
-}
-```
+Add the following code to `app/posts/routes.js` below your `index` route.
 
-Here we are creating the posts property on the post controller function.  This property will be accessible in our view.
-
-Add these lines one by one to `app/posts/views/index.html` refreshing them each time to view their result.
-
-* `{{ indexCtrl.posts }}`
-* `{{ indexCtrl.posts[0] }}`
-* `{{ indexCtrl.posts[0].name }}`
-
-#### Angular directives in our view
-
-We're only using one directive in our app at the moment (`ng-app` in /index.html).  Let's add another one to do work for us.
-
-I want to create a list of our posts.  Replace `app/posts/views/index.html` with:
-
-```
-<div id="posts">
-  <h1>Posts</h1>
-  <ul class="list-group">
-    <li class="list-group-item" ng-repeat="post in indexCtrl.posts">
-      {{ post.name }}
-    </li>
-  </ul>
-</div>
+``` javascript
+.state('postsShow', {
+  url: '/posts/:id',
+  template: require('./views/show.html'),
+  controller: 'postsShowController',
+  controllerAs: 'showCtrl'
+})
 ```
 
-When your page refreshes, you will see our list of posts.
-We are using `ng-repeat` to loop through a list, and repeat some DOM.
+#### You're on your own.
 
-It also creates a local variable in the repeat, `post`, which we use inside the loop!
+You are missing: 
 
-Angular is great at simplifying things that we do very often, 
-such as looping through a list to show a list of `<li>` or `<tr>` elements.
+* A showController
+  * That queries the API to load a single record.  
+  * [ngResource](https://docs.angularjs.org/api/ngResource)
+    * hint: `Post.get`
+* A show view template
 
 ### To continue:
 
 * `git stash`
-* `git checkout activity_04`
+* `git checkout activity_05`
+  * The code in the next step may be different than the code you wrote
 
 
 
