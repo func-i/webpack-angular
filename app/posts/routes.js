@@ -4,7 +4,12 @@ module.exports = function($stateProvider) {
       url: '/posts',
       template: require('./views/index.html'),
       controller: 'postsIndexController',
-      controllerAs: 'indexCtrl'
+      controllerAs: 'indexCtrl',
+      resolve: {
+        postsResponse: function(Post) {
+          return Post.query()
+        }
+      }
     })
 
     .state('postsShow', {
