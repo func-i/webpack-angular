@@ -1,7 +1,7 @@
-module.exports = function() {
-  this.posts = [
-    {name: 'Post1'},
-    {name: 'Post2'},
-    {name: 'Post2'}
-  ]
+module.exports = function(Post) {
+  var that = this;
+
+  Post.query(function(response) {
+    that.posts = response;
+  });
 }
