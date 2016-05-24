@@ -10,7 +10,7 @@ A boilerplate using npm modules, bootstrap, webpack and Angular.
 
 `$> open localhost:8080`
 
-## Activity 4 - Adding a show route
+## Activity 5 - Adding a show route
 
 You should be on the url `/posts`
 
@@ -42,10 +42,22 @@ You are missing:
     * hint: `Post.get`
 * A show view template
 
+As some help, here is a change to `app/posts/views/index.html`
+
+```
+<h1>Posts</h1>
+
+<ul class='list-group'>
+  <a class="list-group-item" ng-repeat="post in indexCtrl.posts" ui-sref="postsShow({id: post.id})">
+    {{ post.title }}
+  </li>
+</ul>
+```
+
 ### To continue:
 
 * `git stash`
-* `git checkout activity_05`
+* `git checkout activity_06`
   * The code in the next step may be different than the code you wrote
 
 
