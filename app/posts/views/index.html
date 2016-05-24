@@ -1,8 +1,7 @@
-<div id="posts">
-  <h1>Posts</h1>
-  <ul class="list-group">
-    <li class="list-group-item" ng-repeat="post in indexCtrl.posts">
-      {{ post.title }}
-    </li>
-  </ul>
-</div>
+<h1>Posts</h1>
+
+<ul class='list-group'>
+  <a class="list-group-item" ng-repeat="post in indexCtrl.posts" ui-sref="postsShow({id: post.id})">
+    {{ post.title }}
+  </li>
+</ul>

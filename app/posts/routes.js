@@ -6,4 +6,11 @@ module.exports = function($stateProvider) {
       controller: 'postsIndexController',
       controllerAs: 'indexCtrl'
     })
+
+    .state('postsShow', {
+      url: '/posts/:id',
+      template: require('./views/show.html'),
+      controller: 'postsShowController',
+      controllerAs: 'showCtrl'
+    })
 }
