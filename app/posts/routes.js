@@ -16,6 +16,11 @@ module.exports = function($stateProvider) {
       url: '/posts/:id',
       template: require('./views/show.html'),
       controller: 'postsShowController',
-      controllerAs: 'showCtrl'
+      controllerAs: 'showCtrl',
+      resolve: {
+        postResponse: function(Post, $stateParams) {
+          return Post.get({ id: $stateParams.id });
+        }
+      }
     })
 }
