@@ -10,59 +10,35 @@ A boilerplate using npm modules, bootstrap, webpack and Angular.
 
 `$> open localhost:8080`
 
-## Activity 8 - Environment Variables
+## Activity 8 - Loading multiple resources on a single page
 
-The `NODE_ENV` has been added to your `package.json` file.  You will notice in the `start` script, the environment is being set.
-We need to take advantage of this variable.
+We now know how to:
 
-#### Modifying Webpack
+* organize our app
+* add to it's structure (modules, controllers, views, resources, env variables)
+* make API calls
 
-We will alias a new resolver so that when we require a file, it requires the appropriate one for us.
+Let's add more functionality to our application and continue to explore more angular concepts.
 
-In `webpack.config.js` underneath the `output` key, add:
+#### Post comments
 
-```
-resolve: {
-  alias: {
-    config: path.join(__dirname, 'config', process.env.NODE_ENV)
-  }
-},
-```
+Our API supports posts having comments.  Let's show these comments on the post page.
+We will need to make an additional API call to show the comments, we can also put that in the `resolve` in our `postsShow` route.
 
-From now on, when we are in **development** and we `require('config')` it will load the file at `config/development.js`
+#### On your own
 
-#### Creating development variables
+You now have the skills to accomplish this task.  So you will need to:
 
-Create the `config` folder in the root of the project and add the file `development.js` with the following:
+* Create the `PostComment` model with the path `/posts/:id/comments`
+  * We can also create the `Comment` model which will query all comments from `/comments`
+* Add resolving the comments in the `postsShow` route in `app/posts/routes.js`
+* Display all comments in `app/posts/views/show.html`
 
-```
-module.exports = {
-  apiHost: 'http://jsonplaceholder.typicode.com/'
-}
-```
-
-We will set our API endpoint so that we can use different endpoints for development and production (one day)
-
-#### Using the development variable
-
-Open `app/resources/post.js` and change it to the following:
-
-```
-var config = require("config");
-
-module.exports = function($resource) {
-  return $resource(config.apiHost + 'posts/:id', {});
-};
-```
-
-This will load our config file (`config/development.js`), and use the `apiHost` we just set.
-
-If you reload your **posts** page, nothing should have changed.
 
 ### To continue:
 
 * `git stash`
-* `git checkout activity_09`
+* `git checkout activity_10`
 
 
 
