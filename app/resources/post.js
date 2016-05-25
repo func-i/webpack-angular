@@ -1,3 +1,5 @@
+var config = require("config");
+
 module.exports = function($resource) {
-  return $resource("http://jsonplaceholder.typicode.com/" + 'posts/:id', {});
+  return $resource(config.apiHost + 'posts/:id', {});
 };

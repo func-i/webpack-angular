@@ -13,6 +13,11 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js' 
   },
+  resolve: {
+    alias: {
+      config: path.join(__dirname, 'config', process.env.NODE_ENV)
+    }
+  },
   module: {
     loaders: [
       { test: /\.html$/, loader: "html" },
