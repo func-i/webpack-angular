@@ -10,65 +10,55 @@ A boilerplate using npm modules, bootstrap, webpack and Angular.
 
 `$> open localhost:8080`
 
-## Activity 6 - Resolving our API calls in the router
+## Activity 7 - Adding a layout
 
-At the moment we are doing all our API calls in our controllers.
-This creates a little more in our controllers than is really necessary.
-We are able to do these API calls in our router.
+We would like to have a generic layout that all our routes are rendered in.
+Our layout can have a nav bar or anything we want.
 
-Doing some API calls in our router makes it easier to see what is happening at a URL in our application.
+The layout already exists and is located at `app/layouts/app.html`.
 
-#### Advanced UI Router
+In this file you will notice:
 
-UI Router allows us to `resolve` our API calls before executing the code in the controller.
-Once our API calls are complete, the results of those calls can be passed to the controller.
+* ng-include
+  * This is a way for us to render partial templates
+* ui-view
+  * This is a directive ui-router uses to render our view into.
 
-For example, change the route for `postsIndex` in `app/posts/routes.js` to:
+If you look at `app/layouts/_navigation.html`, you will notice a bootstrap navbar with a link to `home` and `posts` using `ui-sref`
 
-```
-.state('postsIndex', {
-  url: '/posts',
-  template: require('./views/index.html'),
-  controller: 'postsIndexController',
-  controllerAs: 'indexCtrl',
-  resolve: {
-    postsResponse: function(Post) {
-      return Post.query()
-    }
-  }
-})
-```
+To have all of our routes use this layout, we have to create an *abstract route*
 
-`resolve` takes a JSON object where the keys will be used as arguments in our controller and the return value from the
-function will be the value.  In this case the function returns a `promise`.
-Once this promise resolves, `postsResponse` will be passed to our controller.
+#### Abstract routes
 
-To use this, change `app/posts/controllers/index_ctrl.js` to:
+Abstract routes are routes that act as parent routes.  In an abstract route we can render a template, or even do a `resolve`.
+You cannot route to abstract routes.  So a `ui-sref` pointing to an abstract route will not work.
+
+We will define our layout abstract route in `app/routes.js` by adding: 
 
 ```
-module.exports = function(postsResponse) {
-  this.posts = postsResponse;
-}
+$stateProvider
+  .state('layout', {
+    abstract: true,
+    template: require('./layouts/app.html')
+  });
 ```
 
-As you can see we have less controller code and our router code is longer.
-I feel it's easier to build routes this way as it allows me to see the route, controller, view and initial API calls all in one place.
+You can see this route is an abstract route with a template.  Notice their isn't a `url` associated with this route.
 
-**DISCLAIMER**
+#### Using the layout
 
-If your `resolve` function isn't written properly, your controller will not execute and you will not see your page load.
-This can be frustrating because you do not get any errors and your controller code doesn't execute when you expect it to.
+In `app/posts/routes.js` add `parent: 'layout',` to both of your routes above the `url` key.
 
-If you are debugging your controller and it's not loading at all, you can be sure your resolve function in your router is broken.
+Also, go to `app/home/routes.js` and add it to that route as well.
 
-#### On your own
+When your page reloads, you should see the navigation, and notice that our content is being rendered inside the
+bootstrap container.
 
-Rewrite your `postsShow` route and controller to resolve the API call like we did for the index action.
 
 ### To continue:
 
 * `git stash`
-* `git checkout activity_07`
+* `git checkout activity_08`
 
 
 
