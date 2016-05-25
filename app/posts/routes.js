@@ -1,6 +1,7 @@
 module.exports = function($stateProvider) {
   $stateProvider
     .state('postsIndex', {
+      parent: 'layout',
       url: '/posts',
       template: require('./views/index.html'),
       controller: 'postsIndexController',
@@ -13,6 +14,7 @@ module.exports = function($stateProvider) {
     })
 
     .state('postsShow', {
+      parent: 'layout',
       url: '/posts/:id',
       template: require('./views/show.html'),
       controller: 'postsShowController',
