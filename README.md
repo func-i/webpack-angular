@@ -10,55 +10,59 @@ A boilerplate using npm modules, bootstrap, webpack and Angular.
 
 `$> open localhost:8080`
 
-## Activity 7 - Adding a layout
+## Activity 8 - Environment Variables
 
-We would like to have a generic layout that all our routes are rendered in.
-Our layout can have a nav bar or anything we want.
+The `NODE_ENV` has been added to your `package.json` file.  You will notice in the `start` script, the environment is being set.
+We need to take advantage of this variable.
 
-The layout already exists and is located at `app/layouts/app.html`.
+#### Modifying Webpack
 
-In this file you will notice:
+We will alias a new resolver so that when we require a file, it requires the appropriate one for us.
 
-* ng-include
-  * This is a way for us to render partial templates
-* ui-view
-  * This is a directive ui-router uses to render our view into.
-
-If you look at `app/layouts/_navigation.html`, you will notice a bootstrap navbar with a link to `home` and `posts` using `ui-sref`
-
-To have all of our routes use this layout, we have to create an *abstract route*
-
-#### Abstract routes
-
-Abstract routes are routes that act as parent routes.  In an abstract route we can render a template, or even do a `resolve`.
-You cannot route to abstract routes.  So a `ui-sref` pointing to an abstract route will not work.
-
-We will define our layout abstract route in `app/routes.js` by adding: 
+In `webpack.config.js` underneath the `output` key, add:
 
 ```
-$stateProvider
-  .state('layout', {
-    abstract: true,
-    template: require('./layouts/app.html')
-  });
+resolve: {
+  alias: {
+    config: path.join(__dirname, 'config', process.env.NODE_ENV)
+  }
+},
 ```
 
-You can see this route is an abstract route with a template.  Notice their isn't a `url` associated with this route.
+From now on, when we are in **development** and we `require('config')` it will load the file at `config/development.js`
 
-#### Using the layout
+#### Creating development variables
 
-In `app/posts/routes.js` add `parent: 'layout',` to both of your routes above the `url` key.
+Create the `config` folder in the root of the project and add the file `development.js` with the following:
 
-Also, go to `app/home/routes.js` and add it to that route as well.
+```
+module.exports = {
+  apiHost: 'http://jsonplaceholder.typicode.com/'
+}
+```
 
-When your page reloads, you should see the navigation, and notice that our content is being rendered inside the
-bootstrap container.
+We will set our API endpoint so that we can use different endpoints for development and production (one day)
 
+#### Using the development variable
+
+Open `app/resources/post.js` and change it to the following:
+
+```
+var config = require("config");
+
+module.exports = function($resource) {
+  return $resource(config.apiHost + 'posts/:id', {});
+};
+```
+
+This will load our config file (`config/development.js`), and use the `apiHost` we just set.
+
+If you reload your **posts** page, nothing should have changed.
 
 ### To continue:
 
 * `git stash`
-* `git checkout activity_08`
+* `git checkout activity_09`
 
 
 
