@@ -107,9 +107,12 @@ You will also notice that we export the `name`.  This is because the file will b
 
 #### Add the routes to our posts module
 
-We have created a posts module, but it doesn't contain any functionality.
+open viewing `app/posts/index.js` and note that we 
+have created a posts module, but it doesn't contain any functionality.
 
 We need to import our routes and add them to our module.
+
+Can the code in this file that you previous pasted to:
 
 ``` javascript
   var angular = require('angular');
@@ -123,7 +126,7 @@ We need to import our routes and add them to our module.
 
 We have imported the routes from the routes file, and added it as a `config` to our module.  
 Our routes should work now, right?  
-Go to `/posts`
+Go to `http://localhost:8080/posts`
 
 *Spoiler, they don't work*
 
@@ -168,7 +171,8 @@ Navigate to `/posts` and it should be rendering `/app/posts/views/index.html`
 
 ### To continue:
 
-* `git stash`
+* `git add .`
+* `git commit -m "my activity_01 completed work"
 * `git checkout activity_02`
 
 
