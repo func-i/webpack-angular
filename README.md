@@ -66,7 +66,8 @@ such as looping through a list to show a list of `<li>` or `<tr>` elements.
 
 ### To continue:
 
-* `git stash`
+* `git add .`
+* `git commit -m "my activity_03 completed work"
 * `git checkout activity_04`
 
 
