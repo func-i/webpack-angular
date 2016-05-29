@@ -39,7 +39,7 @@ Let's create it:
 Create the file `app/posts/controllers/index_ctrl.js` and populate it with:
 
 ```
-module.exports = function(posts) {
+module.exports = function() {
   console.log("in posts controller");
 }
 ```
@@ -57,7 +57,7 @@ var indexController = require('./controllers/index_ctrl.js');
 
 module.exports = angular.module('app.posts', [])
   .config(routing)
-  .controller("postIndexController", indexController)
+  .controller("postsIndexController", indexController)
   .name
 ```
 
@@ -95,7 +95,8 @@ they will load all in one place.
 
 ### To continue:
 
-* `git stash`
+* `git add .`
+* `git commit -m "my activity_02 completed work"
 * `git checkout activity_03`
 
 
