@@ -96,7 +96,7 @@ they will load all in one place.
 ### To continue:
 
 * `git add .`
-* `git commit -m "my activity_02 completed work"
+* `git commit -m "my activity_02 completed work"`
 * `git checkout activity_03`
 
 
