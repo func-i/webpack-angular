@@ -137,7 +137,7 @@ Do you see the problem?  Fix it.
 ### To continue:
 
 * `git add .`
-* `git commit -m "my activity_03 completed work"`
+* `git commit -m "my activity_04 completed work"`
 * `git checkout activity_05`
   * The code in the next step may be different than the code you wrote
 
