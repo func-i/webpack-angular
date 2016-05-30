@@ -129,14 +129,15 @@ The changes to the controller do the following:
 * set the controller property `posts` with the result from the posts
 
 When your page reloads, you will notice there are a bunch of posts showing up, but there isn't any content.
-In your web inspector, look at the result of the API call then look at `app/posts/views/show.html`
+In your web inspector, look at the result of the API call then look at `app/posts/views/index.html`
 
 Do you see the problem?  Fix it.
 
 
 ### To continue:
 
-* `git stash`
+* `git add .`
+* `git commit -m "my activity_03 completed work"`
 * `git checkout activity_05`
   * The code in the next step may be different than the code you wrote
 
