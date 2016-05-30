@@ -55,7 +55,7 @@ As some help, here is a change to `app/posts/views/index.html`
 <ul class='list-group'>
   <a class="list-group-item" ng-repeat="post in indexCtrl.posts" ui-sref="postsShow({id: post.id})">
     {{ post.title }}
-  </li>
+  </a>
 </ul>
 ```
 
