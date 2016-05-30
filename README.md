@@ -61,7 +61,8 @@ If you reload your **posts** page, nothing should have changed.
 
 ### To continue:
 
-* `git stash`
+* `git add .`
+* `git commit -m "my activity_08 completed work"`
 * `git checkout activity_09`
 
 
