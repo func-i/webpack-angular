@@ -172,7 +172,7 @@ Navigate to `/posts` and it should be rendering `/app/posts/views/index.html`
 ### To continue:
 
 * `git add .`
-* `git commit -m "my activity_01 completed work"
+* `git commit -m "my activity_01 completed work"`
 * `git checkout activity_02`
 
 
