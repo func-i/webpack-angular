@@ -12,6 +12,9 @@ var posts = require('./posts');
 // resources
 var resources = require('./resources');
 
+// services
+var services = require('./services');
+
 angular.module('app', [
   uirouter, 
   ngResource,
@@ -21,6 +24,9 @@ angular.module('app', [
   posts,
 
   // resources
-  resources
+  resources,
+
+  // services
+  services
   
 ]).config(routing)
