@@ -31,6 +31,8 @@ resolve: {
 
 From now on, when we are in **development** and we `require('config')` it will load the file at `config/development.js`
 
+* Go into your terminal, stop your webpack server, and restart it
+
 #### Creating development variables
 
 Create the `config` folder in the root of the project and add the file `development.js` with the following:
