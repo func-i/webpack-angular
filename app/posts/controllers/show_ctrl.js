@@ -1,3 +1,4 @@
-module.exports = function(postResponse) {
+module.exports = function(postResponse, commentsResponse) {
   this.post = postResponse;
+  this.comments = commentsResponse;
 }

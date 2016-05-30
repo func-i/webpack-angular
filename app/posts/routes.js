@@ -8,7 +8,7 @@ module.exports = function($stateProvider) {
       controllerAs: 'indexCtrl',
       resolve: {
         postsResponse: function(Post) {
-          return Post.query()
+          return Post.query().$promise
         }
       }
     })
@@ -21,7 +21,11 @@ module.exports = function($stateProvider) {
       controllerAs: 'showCtrl',
       resolve: {
         postResponse: function(Post, $stateParams) {
-          return Post.get({ id: $stateParams.id });
+          return Post.get({ id: $stateParams.id }).$promise;
+        },
+
+        commentsResponse: function(PostComment, postResponse) {
+          return PostComment.query({ post_id: postResponse.id }).$promise;
         }
       }
     })
