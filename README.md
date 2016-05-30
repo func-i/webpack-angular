@@ -57,7 +57,8 @@ bootstrap container.
 
 ### To continue:
 
-* `git stash`
+* `git add .`
+* `git commit -m "my activity_07 completed work"`
 * `git checkout activity_08`
 
 
