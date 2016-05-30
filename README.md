@@ -27,7 +27,10 @@ If you change `return Post.query()` to `return Post.query().$promise` you this w
 when the promise is resolved.
 
 Now the `console.log` in our `postsIndexController` logs the array of resources.
-From now on, add `.$promise` while resolving your `ngResource` calls in your routers.
+From now on, add `.$promise` while resolving your `ngResource` calls in your routers if you want to load all resources in full
+before your page shows anything.  This will result in pages waiting for all data before displaying anything.
+
+Use either functionality depending on your needs.
 
 We now know how to:
 
