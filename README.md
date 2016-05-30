@@ -12,6 +12,8 @@ A boilerplate using npm modules, bootstrap, webpack and Angular.
 
 ## Activity 8 - Loading multiple resources on a single page
 
+**Before starting this activity, if your webpack server was running from a previous activity, stop it and restart it**
+
 We now know how to:
 
 * organize our app
@@ -29,15 +31,17 @@ We will need to make an additional API call to show the comments, we can also pu
 
 You now have the skills to accomplish this task.  So you will need to:
 
-* Create the `PostComment` model with the path `/posts/:id/comments`
+* Create the `PostComment` model with that will query the API path `/posts/:id/comments`
   * We can also create the `Comment` model which will query all comments from `/comments`
+  * However we will just create the `PostComment`
 * Add resolving the comments in the `postsShow` route in `app/posts/routes.js`
 * Display all comments in `app/posts/views/show.html`
 
 
 ### To continue:
 
-* `git stash`
+* `git add .`
+* `git commit -m "my activity_09 completed work"`
 * `git checkout activity_10`
 
 
