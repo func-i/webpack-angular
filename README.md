@@ -67,7 +67,8 @@ Rewrite your `postsShow` route and controller to resolve the API call like we di
 
 ### To continue:
 
-* `git stash`
+* `git add .`
+* `git commit -m "my activity_05 completed work"`
 * `git checkout activity_07`
 
 
