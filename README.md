@@ -91,10 +91,10 @@ Just a think to be aware of.
 
 ### Add the directive 
 
-Add `<div jonah-map class="map"></div>` to `app/home/views/show.html`.
+* Add `<div jonah-map class="map"></div>` to `app/home/views/show.html`.
+* import the directives folder into your `app/index.js` file
 
 When it reloads, you should have a `console.log` firing from inside your directive
-
 
 ### Directive link function
 
@@ -103,8 +103,6 @@ When we attach a directive such as `ng-click` to an element, in JS we need to bi
 to that element, then call the function we passed to `ng-click`
 
 In Angular, we do this in the `link` function.
-
-
 
 
 ### To continue:
