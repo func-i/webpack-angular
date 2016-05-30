@@ -62,7 +62,7 @@ As some help, here is a change to `app/posts/views/index.html`
 ### To continue:
 
 * `git add .`
-* `git commit -m "my activity_04 completed work"`
+* `git commit -m "my activity_05 completed work"`
   * The code in the next step may be different than the code you wrote
 
 
