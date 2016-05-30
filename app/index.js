@@ -15,6 +15,9 @@ var resources = require('./resources');
 // services
 var services = require('./services');
 
+// directives
+var directives = require('./directives');
+
 angular.module('app', [
   uirouter, 
   ngResource,
@@ -27,6 +30,9 @@ angular.module('app', [
   resources,
 
   // services
-  services
+  services,
+
+  // directives
+  directives
   
 ]).config(routing)

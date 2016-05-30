@@ -19,6 +19,7 @@
     "bootstrap-sass": "^3.3.6",
     "css-loader": "^0.23.1",
     "file-loader": "^0.8.5",
+    "googlemaps": "^1.6.0",
     "html-loader": "^0.4.3",
     "node-sass": "^3.7.0",
     "sass-loader": "^3.2.0",
