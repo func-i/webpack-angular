@@ -110,8 +110,8 @@ In Angular, we do this in the `link` function.
 ### To continue:
 
 * `git add .`
-* `git commit -m "my activity_10 completed work"`
-* `git checkout activity_11`
+* `git commit -m "my activity_11 completed work"`
+* `git checkout activity_12`
 
 
 
