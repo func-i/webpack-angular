@@ -1,5 +1,3 @@
-require('./stylesheets/home.scss');
-
 var angular = require('angular');
 var uirouter = require('angular-ui-router');
 var routing = require('./routes');
