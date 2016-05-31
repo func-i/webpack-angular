@@ -12,6 +12,8 @@ A boilerplate using npm modules, bootstrap, webpack and Angular.
 
 ## Activity 10 - Intro to Services
 
+**Before beginning this activity, stop your webpack server and restart it**
+
 Service Objects are used for two reasons. 
 
 1. Separation of Concerns
