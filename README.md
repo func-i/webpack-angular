@@ -10,21 +10,18 @@ A boilerplate using npm modules, bootstrap, webpack and Angular.
 
 `$> open localhost:8080`
 
-## Activity 14 - More Directive functionality!!
+## Activity 15 - More stretch goals
 
 This activity is all on your own
 
-#### More Google Map functionality
+[More Directive explanations](http://stackoverflow.com/questions/15676614/angularjs-link-vs-compile-vs-controller)
 
-Use google map listeners to do the following:
+* Write a directive that uses `ng-transclude`
+* Find a reason to use the `compile` method in a directive
+* Implment the all CRUD resources from http://jsonplaceholder.typicode.com/
+  * use both `Model.update` and `loadedResource.$save`
+* 
 
-* When the center changes, get the new latlng and change the geolocation to display the new address
-* Drop a pin on the center of the map
-* Change a bunch of the logic in the `link` function to be inside a controller in the directive
-  * Load this controller from a `controllers` folder in the directive
-* Change the geolocation to a text input it so that:
-  * If the map is moved manually, it changes the address in that text input to the center address
-  * If the address is changed in the text input and submitted, it geocodes it and changes the center to the new location
 
 ### To continue:
 
