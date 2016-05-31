@@ -20,14 +20,15 @@ This activity is all on your own
 * Find a reason to use the `compile` method in a directive
 * Implment the all CRUD resources from http://jsonplaceholder.typicode.com/
   * use both `Model.update` and `loadedResource.$save`
-* 
-
+* Create a login page for a user
+  * And a user service
+* Create `interceptors` for authentication to an API that use the user service
 
 ### To continue:
 
 * `git add .`
-* `git commit -m "my activity_14 completed work"`
-* `git checkout activity_15`
+* `git commit -m "my activity_15 completed work"`
+* That's all folks!!!!
 
 
 
