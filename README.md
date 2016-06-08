@@ -109,7 +109,7 @@ In Angular, we do this in the `link` function.
 
 * `git add .`
 * `git commit -m "my activity_11 completed work"`
-* `git checkout activity_12`
+* Activities no longer have completed code, proceed to Activity 12 while keeping your code.
 
 
 
