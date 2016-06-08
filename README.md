@@ -10,7 +10,19 @@ A boilerplate using npm modules, bootstrap, webpack and Angular.
 
 `$> open localhost:8080`
 
-## Activity 14 - More Directive functionality!!
+## Activity 14 - Adding another Directive
+
+Now that the map is showing, let's use this new directive to show the **geocoded address** using the LatLng at center of the map
+
+### Adding a geocoder
+
+You can use the Google Maps geocoder with `var geocoder = new google.maps.Geocoder();`
+
+Refer to [the documentation](https://developers.google.com/maps/documentation/javascript/geocoding#reverse-geocoding-by-location)
+
+Create a new `Geocoder` directive that can be used like this:
+
+`<geocoder lat="latitude" lng="longitude"></geocoder>`
 
 This activity is all on your own
 
@@ -18,21 +30,17 @@ This activity is all on your own
 
 Use google map listeners to do the following:
 
-* When the center changes, get the new latlng and change the geolocation to display the new address
-* Drop a pin on the center of the map
-* Change the geolocation to a text input it so that:
-  * If the map is moved manually, it changes the address in that text input to the center address
-  * If the address is changed in the text input and submitted, it geocodes it and changes the center to the new location
-* Separate out the geocoding part to another directive
-* Change a bunch of the logic in the `link` function to be inside a controller in the directive
-  * Load this controller from a `controllers` folder in the directive
-  * Share the controller between the `map` directive and the `geocoder` directive
+* Create the geocoder directive
+  * Give it a template and styling
+* Add the geocoder directive to the template of your `jonah-map` directive
+* Pass the center of the map to this directive as lat lng
+* When the center of the map changes, the `geocoder` directive should use the new lat lng to display the new address
 
 ### To continue:
 
 * `git add .`
 * `git commit -m "my activity_14 completed work"`
-* `git checkout activity_15`
+* Activities no longer have completed code, proceed to Activity 15 while keeping your code.
 
 
 
