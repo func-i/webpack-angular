@@ -10,16 +10,7 @@ A boilerplate using npm modules, bootstrap, webpack and Angular.
 
 `$> open localhost:8080`
 
-## Activity 13 - Directives, Google Maps, Geocoders, oh my.....
-
-Now that the map is showing, let's use this directive to attach some extra functionality to the map.
-
-### Adding a geocoder
-
-You can use the Google Maps geocoder with `var geocoder = new google.maps.Geocoder();`
-Add this to your directive and `console.log` the results of the call.
-
-Refer to [the documentation](https://developers.google.com/maps/documentation/javascript/geocoding#reverse-geocoding-by-location)
+## Activity 13 - Directive templates
 
 ### Custom template in your directive
 
@@ -48,7 +39,6 @@ In `app/directives/map/views/template.html` add:
 
 ```
 <div class="jonah-map-holder">
-  <h3 class="jonah-map-geolocation"></h3>
   <div class="jonah-map"></div>
 </div>
 ```
@@ -67,13 +57,12 @@ In `app/directives/map/views/template.html` add:
 * Make your map work by selecting the `jonah-map` element in your directive.
   * Jquery isn't loaded, so you have to use the default angular selectors
   * You can reference [this](http://stackoverflow.com/questions/24620128/find-child-element-in-angularjs-directive)
-* Make the geolocation for the current **latlng** show up in the `jonah-map-geolocation` div
 
 ### To continue:
 
 * `git add .`
 * `git commit -m "my activity_13 completed work"`
-* `git checkout activity_14`
+* Activities no longer have completed code, proceed to Activity 14 while keeping your code.
 
 
 
