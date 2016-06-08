@@ -34,7 +34,7 @@ var map = new google.maps.Map(/* Reference to the map div DOM element */, {
 
 * `git add .`
 * `git commit -m "my activity_12 completed work"`
-* `git checkout activity_13`
+* Activities no longer have completed code, proceed to Activity 13 while keeping your code.
 
 
 
