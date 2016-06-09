@@ -10,25 +10,38 @@ A boilerplate using npm modules, bootstrap, webpack and Angular.
 
 `$> open localhost:8080`
 
-## Activity 15 - More stretch goals
+## Activity 15 - Directive Isolate scopes
 
-This activity is all on your own
+At the moment when we use `$scope` in our directive's link function, we are accessing the scope outside of the directive.
+The parent scope.  Because `$scope` is a large JavaScript Object, we want to try to avoid polluting this object as much as possible.
 
-[More Directive explanations](http://stackoverflow.com/questions/15676614/angularjs-link-vs-compile-vs-controller)
+One of the ways we can do that with directives is to make it so that each directive has it's own scope completely independent of it's parent.
+This is known as an **isolate scope**
 
-* Write a directive that uses `ng-transclude`
-* Find a reason to use the `compile` method in a directive
-* Implment the all CRUD resources from http://jsonplaceholder.typicode.com/
-  * use both `Model.update` and `loadedResource.$save`
-* Create a login page for a user
-  * And a user service
-* Create `interceptors` for authentication to an API that use the user service
+We can do this by passing `scope` to the directive options.
+
+Eg: 
+
+```
+restrict: "E",
+scope: {
+  lat: "@",
+  lng: "@"
+}
+
+```
+
+On your own:
+
+* Use scopes in your `geocoder` directive for `lat` and `lng`
+* How do you access the isolate scope?
+* What is `@` above?  Read this [blog](http://onehungrymind.com/angularjs-sticky-notes-pt-2-isolated-scope/)
 
 ### To continue:
 
 * `git add .`
 * `git commit -m "my activity_15 completed work"`
-* That's all folks!!!!
+* Activities no longer have completed code, proceed to Activity 16 while keeping your code.
 
 
 
