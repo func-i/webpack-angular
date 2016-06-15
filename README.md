@@ -55,7 +55,5 @@ module.exports = function($injector, $q, UserService) {
 ### To continue:
 
 * That's all folks
-* Activities no longer have completed code, proceed to Activity 16 while keeping your code.
-
 
 
