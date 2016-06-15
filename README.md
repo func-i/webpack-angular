@@ -10,52 +10,51 @@ A boilerplate using npm modules, bootstrap, webpack and Angular.
 
 `$> open localhost:8080`
 
-## Activity 19 - Directive Controllers
+## Activity 19 - Interceptors
 
-There are very few instances where we need to use `$scope`
+An interceptor is request middleware.
 
-1. In a directive
-1. Using a listeners to $emit or $broadcast
-1. Using $watch for changes on the scope
+It can be used to modify requests before they are sent out, and responses as they are coming back in.
+A common use for this is for user token authentication.
 
-#### Changing our Geocoder directive to not be nested
-
-Right now the geocoder receives the `latLng` via props.
-Let's change this to be a standalone directive that receives the information via `events`
-
-That way we can put the geocoder directive anywhere we want and send a new address for it to update.
-Also, I want to use `new google.maps.places.PlacesService` to find a number of locations nearby.
-
-The result being this:
-
-![](https://photos-5.dropbox.com/t/2/AAB4Q9GWKQF4HZW0xx1Of6zPiZC8Cdb0tLUBwoDGWFOobA/12/40938512/png/32x32/3/1466031600/0/2/Screenshot%202016-06-15%2012.20.27.png/ENLYoB8YwQsgBygH/wpZai2cKOCmicIzYWhDyMjDcd4A6mQ-fkplM_TAWi_c?size_mode=3&size=2048x1536)
-
-#### On your own:
-
-* Remove `geocoder` from `jonah-map`
-* Change the layout the map is rendered in, like this:
+Consider `authenticated_interceptor.js`:
 
 ```
-<div class='row'>
-  <div class='col-md-8'>
-    <jonah-map></jonah-map>
-  </div>
-  <div class='col-md-4'>
-    <geocoder></geocoder>
-  </div>
-</div>
+module.exports = function(UserService) {
+  return {
+    request: function(config) {
+      # if the user is logged in, set it here
+      if(UserService.current_user) {
+        config.headers['Authorization'] = UserService.current_user.token
+      }
+      
+      return config
+    }
+  }
+}
 ```
 
-* Have the `jonah-map` send `latLng` using events to the `geocoder`
-  * `$on`
-  * `$emit`
-  * `$broadcast`
-* use `new google.maps.places.PlacesService` to query locations nearby and display them
+Consider `unauthenticated_interceptor.js`:
+
+```
+module.exports = function($injector, $q, UserService) {
+  return {
+    responseError: function(response) {
+      if(response.status == 401) {
+        UserService.signout();
+        $injector.get('$state').go('signin');
+        $q.reject(response);
+      }
+      else
+        $q.reject(response);
+    }
+  }     
+}
+```
 
 ### To continue:
 
-* `git add .`
-* `git commit -m "my activity_18 completed work"`
+* That's all folks
 * Activities no longer have completed code, proceed to Activity 16 while keeping your code.
 
 
