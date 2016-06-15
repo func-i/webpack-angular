@@ -47,6 +47,9 @@ The result being this:
 ```
 
 * Have the `jonah-map` send `latLng` using events to the `geocoder`
+  * `$on`
+  * `$emit`
+  * `$broadcast`
 * use `new google.maps.places.PlacesService` to query locations nearby and display them
 
 ### To continue:
