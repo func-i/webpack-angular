@@ -15,6 +15,9 @@ A boilerplate using npm modules, bootstrap, webpack and Angular.
 * Add multiple `notepad` directives on the same page
 * What unexpected behaviour are you getting?
 * How do you fix this? (Isolate scope)
+* How do you handle the `blur` functionality?
+  * Are your updates being propagated?
+  * How do we force changes in Angular? (Ask for help if needed)
 
 ### To continue:
 
