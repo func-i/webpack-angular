@@ -14,6 +14,7 @@ A boilerplate using npm modules, bootstrap, webpack and Angular.
 
 * Add multiple `notepad` directives on the same page
 * What unexpected behaviour are you getting?
+  * Try clicking between the two notepads
 * How do you fix this? (Isolate scope)
 
 ### To continue:
