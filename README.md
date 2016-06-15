@@ -24,8 +24,8 @@ This directive should do the following:
 
 * Display a div with the text: "Click here to edit"
 * When the div is clicked, it should turn into a text editable div using the html5 tag `contenteditable`
-* When the user hits enter, it should return back to a normal div
-* Shift enter should be fine
+* A button to save the comment should appear which stops the editting and sets the comment
+* Shifting focus should also set the comment
 
 Use the following as the template for your directive:
 
@@ -35,6 +35,7 @@ Use the following as the template for your directive:
   <div class="notepad-content">
     Click here to edit
   </div>
+  <button class="btn btn-success">Save</button>
 </div>
 ```
 
