@@ -1,0 +1,11 @@
+<div class="notepad">
+  <h4>Notepad</h4>
+  <div 
+    class="notepad-content" 
+    contenteditable="{{ editing }}" 
+    ng-click="setEditing()"
+    ng-model="note">
+      Click here to edit
+  </div>
+  <button class="btn btn-success" ng-if="editing" ng-click="save()">Save</button>
+</div>

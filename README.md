@@ -10,7 +10,7 @@ A boilerplate using npm modules, bootstrap, webpack and Angular.
 
 `$> open localhost:8080`
 
-## Activity 18 - Using listeners
+## Activity 19 - Directive Controllers
 
 There are very few instances where we need to use `$scope`
 

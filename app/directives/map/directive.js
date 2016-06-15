@@ -1,4 +1,4 @@
-module.exports = function(Geocoder) {
+module.exports = function($timeout) {
   return {
     restrict: 'E',
     template: require('./views/template.html'),
@@ -11,11 +11,14 @@ module.exports = function(Geocoder) {
         zoom: 13
       });
 
-      var geocoderDiv = $element[0].querySelector('.jonah-map-geolocation');
+      $timeout(function() {
+        $scope.$root.$broadcast('geocoder:setLocation', { latLng: map.center });  
+      }, 0);
 
-      Geocoder.coder.geocode({ location: latLng }, function(results, status){
-        geocoderDiv.innerHTML = results[0].formatted_address;
-      });
+
+      map.addListener('center_changed', function() {
+        $scope.$root.$broadcast('geocoder:setLocation', { latLng: map.center });  
+      })
     }
   }
 }
